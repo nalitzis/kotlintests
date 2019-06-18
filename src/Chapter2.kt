@@ -34,6 +34,14 @@ fun printExpr(expr: Expr) : String =
             else -> throw IllegalArgumentException("wrong type")
         }
 
+fun fizzBuzz(n: Int) : String =
+    when {
+        n%15 == 0 -> "fizzBuzz "
+        n%3 == 0 -> "fizz "
+        n%5 == 0 -> "buzz "
+        else -> "$n "
+    }
+
 fun main(args: Array<String>) {
     println("hello, world")
     val a = 2
@@ -49,4 +57,13 @@ fun main(args: Array<String>) {
     val expr = Sum(Num(3), Sum(Num(9), Num(4)))
     println("expr is ${eval(expr)}")
     println(printExpr(expr))
+    val r = 1..100
+    for (i in r) print(fizzBuzz(i))
+    val r2 = 100 downTo 1 step 2
+    for (i2 in r2) print(fizzBuzz(i2))
+    println()
+
+    val n = 23
+    val r3 = 0..100
+    println("Is n ($n) in range ($r3)? ${n in r3}")
 }
